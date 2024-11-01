@@ -9,7 +9,9 @@
 </head>
 <body>
     <a href="/">Home</a>
-    <a href="/about">about</a>
+    <a href="/about">About</a>
+    <a href="/blog">Blog</a>
+    <a href="/contact">Contact</a>
 
     <h1> Halaman About </h1>
     <h3> Owner : {{ $nama }} </h3>
