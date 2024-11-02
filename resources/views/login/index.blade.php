@@ -3,15 +3,25 @@
 
     <section class="">
         <div class="flex flex-col items-center  px-6 py-8 mx-auto md:h-screen lg:py-0">
+
             <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
                 <img class="w-8 h-8 mr-2 rounded-full" src="{{ asset('img/logo.jpg') }}" alt="logo">
                 Ahmad's Blogs
             </a>
             <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                    @if (session()->has('success'))
+                    <div class="flex items-center p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
+                        <span class="sr-only">Info</span>
+                        <div>
+                            {{ session('success') }}
+                        </div>
+                    </div>
+                    @endif
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                         Sign in to your account
                     </h1>
+
                     <form class="space-y-4 md:space-y-6" action="#">
                         <div>
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
