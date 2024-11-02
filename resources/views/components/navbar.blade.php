@@ -12,12 +12,16 @@
                 <x-nav-link href="/posts" :active="request()->is('posts')">Blog</x-nav-link>
                 <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
                 <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
+
             </div>
             </div>
         </div>
         <div class="hidden md:block">
             <div class="ml-4 flex items-center md:ml-6">
-
+            @guest
+            <x-nav-link href="/login" :active="request()->is('login')">Login</x-nav-link>
+            <x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link>
+            @else
             <!-- Profile dropdown -->
             <div class="relative ml-3">
                 <div>
@@ -42,6 +46,7 @@
                 <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
                 </div>
             </div>
+            @endguest
             </div>
         </div>
         <div class="-mr-2 flex md:hidden">
@@ -72,6 +77,10 @@
         <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
         <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
 
+        @guest
+        <x-nav-link href="/login" :active="request()->is('login')">Login</x-nav-link>
+        <x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link>
+        @else
         <div class="border-t border-gray-700 pb-3 pt-4">
         <div class="flex items-center px-5">
             <div class="flex-shrink-0">
@@ -81,13 +90,13 @@
             <div class="text-base font-medium leading-none text-white">Ahmad Suherman</div>
             <div class="text-sm font-medium leading-none text-gray-400">suhermana274@gmail.com</div>
             </div>
-
         </div>
         <div class="mt-3 space-y-1 px-2">
             <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Your Profile</a>
             <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Settings</a>
             <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Sign out</a>
         </div>
+        @endguest
         </div>
     </div>
 </nav>
