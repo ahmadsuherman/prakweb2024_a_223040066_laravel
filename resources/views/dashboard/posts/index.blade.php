@@ -3,8 +3,13 @@
     <div class="relative overflow-x-auto shadow-md rounded-lg">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <caption class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
-                Our Posts
-                <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum quisquam ex delectus quibusdam beatae rerum fugit voluptas iste nulla adipisci dolor, perspiciatis magnam rem nemo officiis pariatur, eaque commodi nisi?</p>
+                <div for="hosting-small" class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white rounded-lg dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                    <div class="block">
+                        Our Posts
+                    <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">Browse a list of Flowbite products designed to help you work and play, stay organized, get answers, keep in touch, grow your business, and more.</p>
+                    </div>
+                    <a href="/dashboard/posts/create" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Create New Post</a>
+                </div>
             </caption>
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
