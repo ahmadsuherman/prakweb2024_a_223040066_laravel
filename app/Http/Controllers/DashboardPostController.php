@@ -17,7 +17,7 @@ class DashboardPostController extends Controller
     public function index()
     {
         return view('dashboard.posts.index', [
-            'posts' => Post::where('author_id', Auth()->user()->id)->get(),
+            'posts' => Post::where('author_id', Auth()->user()->id)->paginate(10),
             'title' => 'My Posts'
         ]);
     }
@@ -111,6 +111,8 @@ class DashboardPostController extends Controller
      */
     public function destroy(Post $post)
     {
+        if(Auth()->user()->id !== $post->author_id) return back()->with('error', 'The post is not your owner');
+
         if ($post->image) {
             Storage::delete($post->image);
         }

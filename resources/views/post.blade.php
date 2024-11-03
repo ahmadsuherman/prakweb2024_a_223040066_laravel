@@ -21,8 +21,15 @@
                         </div>
                     </address>
                     <h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">{{ $post->title }}</h1>
+                    @if ($post->image)
+                        <div style="max-height: 350px; overflow: hidden">
+                        <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}" class="img-fluid mt-2">
+                        </div>
+                    @else
+                        <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}" alt="{{ $post->category->name }}" class="img-fluid mt-2">
+                    @endif
                 </header>
-                <p>{{ $post->body }}</p>
+                <p>{!! $post->body !!}</p>
             </article>
         </div>
     </main>
