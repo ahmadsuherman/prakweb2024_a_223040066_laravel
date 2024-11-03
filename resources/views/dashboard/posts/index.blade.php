@@ -55,8 +55,13 @@
                     </td>
                     <td class="px-6 py-4">
                         <a href="/dashboard/posts/{{ $post->slug }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Show</a>
-                        <a href="#" class="font-medium text-yellow-600 dark:text-yellow-500 hover:underline ms-2 me-2">Edit</a>
-                        <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
+                        <a href="/dashboard/posts/{{ $post->slug }}/edit" class="font-medium text-yellow-600 dark:text-yellow-500 hover:underline ms-2 me-2">Edit</a>
+                        <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button class="font-medium text-red-600 dark:text-red-500 hover:underline" onclick="return confirm('Are you sure?')">Delete
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 @empty
