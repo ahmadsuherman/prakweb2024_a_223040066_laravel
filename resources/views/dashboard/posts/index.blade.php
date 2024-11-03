@@ -1,5 +1,20 @@
 <x-layout-dashboard>
     <x-slot:title>{{ $title }}</x-slot:title>
+    @if (session()->has('success'))
+    <div class="flex items-center p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
+        <div>
+            {{ session('success') }}
+        </div>
+    </div>
+    @endif
+
+    @if (session()->has('error'))
+    <div class="flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800" role="alert">
+        <div>
+            {{ session('error') }}
+        </div>
+    </div>
+    @endif
     <div class="relative overflow-x-auto shadow-md rounded-lg">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <caption class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">

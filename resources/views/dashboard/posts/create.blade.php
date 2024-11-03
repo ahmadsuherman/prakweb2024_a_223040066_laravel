@@ -28,7 +28,11 @@
                     <select type="text" name="category_id" id="category_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 @error('category_id') bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-gray-700 focus:border-red-500 block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500 @enderror" placeholder="Enter your category id" required="" value="{{ old('category_id') }}">
                         <option value="">Select your category</option>
                         @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @if (old('category_id') == $category->id)
+                            <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                        @else
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endif
                         @endforeach
                     </select>
                     @error('category_id')
@@ -38,7 +42,7 @@
 
                 <div>
                     <label for="body" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white @error('body') text-red-700 dark:text-red-500 @enderror">Body</label>
-                    <input id="body" type="hidden" name="body">
+                    <input id="body" type="hidden" name="body" value="{{ old('body') }}">
                     <trix-editor input="body"></trix-editor>
 
                     @error('body')
